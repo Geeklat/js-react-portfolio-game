@@ -32,7 +32,7 @@ export function AppLayout({
         className={`${styles.appMain} ${detailMode ? styles.detailMain : styles.partyMain}`}
       >
         <div
-          className={`${styles.shell} ${detailMode ? styles.detailMode : styles.partyMode} ${enteredFromPartyScreen ? styles.enteringDetail : ''}`}
+          className={`${styles.shell} ${detailMode ? styles.detailMode : styles.partyMode} ${detailMode && enteredFromPartyScreen ? styles.enteringDetail : ''}`}
           data-screen={detailMode ? 'detail' : 'party'}
         >
           {detailMode ? (

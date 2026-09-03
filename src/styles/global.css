@@ -9,8 +9,6 @@
 :root {
   --background-deep: #070b22;
   --background: #101a48;
-  --panel: #17265f;
-  --panel-deep: #0d1640;
   --border: #c8d2ed;
   --border-muted: #6676aa;
   --text: #f6f5ef;
@@ -29,7 +27,6 @@
   --ink: var(--background-deep);
   --line: var(--border-muted);
   --silver: var(--border);
-  --paper: var(--text);
   --gold: var(--accent);
 
   color: var(--text);

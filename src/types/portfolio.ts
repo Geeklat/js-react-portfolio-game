@@ -16,20 +16,23 @@ export type ProfessionalIdentity = {
   linkedInUrl: string
 }
 
-export type Experience = {
+type Employment = {
   id: string
   employer: string
   role: string
   dates: string
+}
+
+export type FeaturedExperience = Employment & {
   summary: string
   achievements: string[]
   technologies: string[]
 }
+
+export type EarlierExperience = Employment
+
 export type SkillGroup = {
   id: string
   title: string
-  skills: Array<{
-    name: string
-    evidence?: string
-  }>
+  skills: string[]
 }

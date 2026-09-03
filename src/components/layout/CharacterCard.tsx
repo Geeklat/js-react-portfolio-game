@@ -8,6 +8,7 @@ import styles from './Layout.module.css'
 export function CharacterCard() {
   return (
     <GameWindow title="Status" as="section" className={styles.characterPanel}>
+      <h1 className="sr-only">Justin Green — Software Engineer portfolio</h1>
       <CharacterArtwork kind="portrait" src={artwork.portraitSrc} />
       <dl className={styles.identityList}>
         <div>

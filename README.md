@@ -52,7 +52,7 @@ Never commit these private working references or infer missing professional fact
 
 ## Assets and résumé
 
-The current portrait, detail character, and cursor are clearly marked CSS implementation placeholders. Add owner-approved image files and set their paths in `src/data/assets.ts`; the component structure supports those production assets without redesign.
+The portrait and menu pointer use owner-approved pixel-art PNG assets configured in `src/data/assets.ts`. The portrait currently serves both the party and detail interfaces.
 
 Do not create a sample résumé. When the owner supplies the real PDF, place it in `public/` and set `resumeUrl` in `src/data/contact.ts`. The download action remains absent while that value is `null`.
 

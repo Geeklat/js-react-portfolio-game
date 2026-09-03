@@ -1,8 +1,8 @@
-import type { Experience } from '../types/portfolio'
+import type { EarlierExperience, FeaturedExperience } from '../types/portfolio'
 
 // Recent, frontend-relevant roles receive fuller treatment. Earlier roles remain
 // represented below so the complete approved employment history stays visible.
-export const featuredExperience: Experience[] = [
+export const featuredExperience: FeaturedExperience[] = [
   {
     id: 'tensure',
     employer: 'Tensure Consulting',
@@ -75,32 +75,23 @@ export const featuredExperience: Experience[] = [
   },
 ]
 
-export const earlierExperience: Experience[] = [
+export const earlierExperience: EarlierExperience[] = [
   {
     id: 'tmc-technologies',
     employer: 'TMC Technologies',
     role: 'Software Engineer',
     dates: 'April 2015 – October 2017',
-    summary: '',
-    achievements: [],
-    technologies: [],
   },
   {
     id: 'azimuth',
     employer: 'Azimuth Inc.',
     role: 'Software Engineer',
     dates: 'November 2010 – April 2015',
-    summary: '',
-    achievements: [],
-    technologies: [],
   },
   {
     id: 'fusion-technology',
     employer: 'Fusion Technology LLC',
     role: 'Graphic Designer',
     dates: 'July 2010 – December 2010',
-    summary: '',
-    achievements: [],
-    technologies: [],
   },
 ]

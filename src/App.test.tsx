@@ -15,6 +15,9 @@ describe('portfolio shell', () => {
   it('starts on the party screen with exactly four professional commands', () => {
     renderAt()
     expect(screen.getByText('Justin Green')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Justin Green — Software Engineer portfolio', level: 1 }),
+    ).toBeInTheDocument()
     expect(screen.getByTestId('portrait-artwork')).toHaveAccessibleName('Portrait of Justin Green')
     expect(screen.getByRole('link', { name: 'Profile' })).toHaveFocus()
     expect(screen.getByTestId('menu-pointer-artwork')).toBeInTheDocument()
@@ -112,6 +115,34 @@ describe('portfolio shell', () => {
     await waitFor(() =>
       expect(screen.getByRole('link', { name: 'Profile' })).toHaveAttribute('aria-current', 'page'),
     )
+  })
+
+  it('replays the entrance transition only after returning to the party screen', async () => {
+    const user = userEvent.setup()
+    const { container } = renderAt()
+    const getShell = () => container.querySelector<HTMLElement>('[data-screen]')!
+    const partyClassName = getShell().className
+
+    await user.click(screen.getByRole('link', { name: 'Profile' }))
+    const enteringDetailClassName = getShell().className
+    expect(getShell()).toHaveAttribute('data-screen', 'detail')
+
+    await user.click(screen.getByRole('link', { name: 'Work' }))
+    expect(getShell().className).toBe(enteringDetailClassName)
+
+    window.history.back()
+    await waitFor(() =>
+      expect(screen.getByRole('link', { name: 'Profile' })).toHaveAttribute('aria-current', 'page'),
+    )
+    expect(getShell().className).toBe(enteringDetailClassName)
+
+    window.history.back()
+    await waitFor(() => expect(getShell()).toHaveAttribute('data-screen', 'party'))
+    expect(getShell().className).toBe(partyClassName)
+
+    await user.click(screen.getByRole('link', { name: 'Contact' }))
+    expect(getShell()).toHaveAttribute('data-screen', 'detail')
+    expect(getShell().className).toBe(enteringDetailClassName)
   })
 
   it('falls back to the party screen for an invalid fragment', () => {

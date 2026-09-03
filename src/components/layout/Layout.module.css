@@ -97,48 +97,6 @@
   font-size: clamp(1.6rem, 4vw, 2.8rem);
 }
 
-.artworkPlaceholder {
-  position: relative;
-  flex: 0 0 auto;
-  overflow: hidden;
-  border: 2px solid var(--border);
-  background:
-    linear-gradient(135deg, transparent 0 44%, rgba(255, 255, 255, 0.08) 44% 50%, transparent 50%),
-    linear-gradient(145deg, #29448d, #121d51);
-  image-rendering: pixelated;
-}
-
-.artworkPlaceholder::before,
-.artworkPlaceholder::after,
-.artworkPlaceholder span {
-  content: '';
-  position: absolute;
-  background: var(--text);
-}
-
-.artworkPlaceholder::before {
-  width: 38%;
-  height: 34%;
-  left: 31%;
-  top: 18%;
-  border-radius: 45% 45% 30% 30%;
-}
-.artworkPlaceholder::after {
-  width: 58%;
-  height: 44%;
-  left: 21%;
-  bottom: -12%;
-  border-radius: 48% 48% 0 0;
-}
-.artworkPlaceholder span {
-  width: 48%;
-  height: 12%;
-  left: 26%;
-  top: 14%;
-  background: var(--accent);
-  transform: rotate(-8deg);
-}
-
 .portraitArtwork {
   display: block;
   width: clamp(8rem, 25vw, 10.25rem);
@@ -235,36 +193,6 @@
   height: 100%;
   object-fit: contain;
   image-rendering: pixelated;
-}
-.cursorPlaceholder {
-  position: relative;
-  display: block;
-  width: 1rem;
-  height: 0.72rem;
-  border: 2px solid var(--background-deep);
-  background: var(--text);
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
-}
-.cursorPlaceholder::before {
-  content: '';
-  position: absolute;
-  width: 0.55rem;
-  height: 0.3rem;
-  right: -0.48rem;
-  top: -0.12rem;
-  border: 2px solid var(--background-deep);
-  background: var(--text);
-}
-.cursorPlaceholder::after {
-  content: '';
-  position: absolute;
-  width: 0.35rem;
-  height: 0.72rem;
-  left: -0.3rem;
-  bottom: -0.35rem;
-  border: 2px solid var(--background-deep);
-  background: var(--text);
-  transform: rotate(-28deg);
 }
 .menuHint {
   margin: var(--space-3) 0 0;
