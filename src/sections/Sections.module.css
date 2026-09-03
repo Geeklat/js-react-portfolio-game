@@ -1,0 +1,119 @@
+.pending {
+  max-width: 62ch;
+  padding: 1rem;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  color: var(--text-muted);
+}
+
+.prose {
+  max-width: 72ch;
+}
+.prose p {
+  line-height: 1.75;
+}
+.featuredList {
+  display: grid;
+  gap: var(--space-4);
+}
+.featuredRole {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-muted);
+}
+.featuredRole header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.featuredRole header p {
+  margin: 0;
+  color: var(--accent);
+}
+.featuredRole h3 {
+  margin: 0.25rem 0;
+}
+.featuredRole time,
+.earlier time {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+.tags li {
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--border-muted);
+  font-size: 0.8rem;
+}
+.earlier {
+  margin-top: var(--space-5);
+}
+.earlier ol {
+  padding: 0;
+  list-style: none;
+}
+.earlier li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 0.8rem 0;
+  border-top: 1px dashed var(--border-muted);
+}
+.earlier li div {
+  display: grid;
+}
+.earlier li span {
+  color: var(--text-muted);
+}
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+.skillGrid > section {
+  padding: var(--space-4);
+  border: 1px solid var(--border-muted);
+}
+.skillGrid ul {
+  padding-left: 1.25rem;
+}
+.skillGrid p {
+  margin: 0.25rem 0 0.75rem;
+  color: var(--text-muted);
+}
+.contactList {
+  max-width: 48rem;
+  margin: 0;
+}
+.contactList div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: var(--space-3);
+  padding: 0.8rem 0;
+  border-top: 1px dashed var(--border-muted);
+}
+.contactList dt {
+  color: var(--text-muted);
+}
+.contactList dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 650px) {
+  .featuredRole header,
+  .earlier li {
+    display: grid;
+  }
+  .skillGrid {
+    grid-template-columns: 1fr;
+  }
+  .contactList div {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}

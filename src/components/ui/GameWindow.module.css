@@ -1,0 +1,27 @@
+.window {
+  position: relative;
+  background: linear-gradient(145deg, rgba(28, 34, 78, 0.97), rgba(13, 17, 42, 0.97));
+  border: var(--window-border-width) solid var(--silver);
+  box-shadow:
+    inset 0 0 0 3px var(--ink),
+    inset 0 0 0 5px var(--line),
+    8px 8px 0 rgba(6, 7, 20, 0.68);
+  border-radius: var(--window-border-radius);
+}
+.inner {
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+.title {
+  position: absolute;
+  z-index: 1;
+  top: -0.75rem;
+  left: 1rem;
+  padding: 0.18rem 0.65rem;
+  background: var(--ink);
+  border: 1px solid var(--silver);
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
