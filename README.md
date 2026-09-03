@@ -68,6 +68,6 @@ The initial detail transition moves right-to-left, section changes inside detail
 
 The application builds to static files with Vite. Because navigation uses fragments rather than client-side routes, a static host does not need fallback rewrites for portfolio sections.
 
-## Engineering approach
+## Development approach
 
-AI-assisted implementation is used as an accelerator under repository steering rules. Product direction, professional content, consequential architecture, and public assets remain human decisions. See `AGENTS.md` for the project constraints and decision gates.
+This project uses a deliberately constrained, human-directed agentic development workflow. Agents assist with bounded implementation and verification, while consequential product, architecture, accessibility, content, and design decisions remain human-owned. See [Human-Directed Agentic Development](docs/AGENTIC-DEVELOPMENT.md) for the methodology and [`AGENTS.md`](AGENTS.md) for the operational decision boundaries.
