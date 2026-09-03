@@ -1,27 +1,60 @@
 .window {
   position: relative;
-  background: linear-gradient(145deg, rgba(28, 34, 78, 0.97), rgba(13, 17, 42, 0.97));
+  background: linear-gradient(145deg, var(--window-surface-start), var(--window-surface-end));
   border: var(--window-border-width) solid var(--silver);
   box-shadow:
-    inset 0 0 0 3px var(--ink),
+    inset 0 0 0 2px var(--ink),
     inset 0 0 0 5px var(--line),
-    8px 8px 0 rgba(6, 7, 20, 0.68);
+    inset 3px 3px 0 6px var(--window-inner-highlight),
+    inset -3px -3px 0 6px var(--window-inner-shadow),
+    7px 7px 0 rgba(4, 6, 24, 0.72);
   border-radius: var(--window-border-radius);
 }
+.window::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 8px;
+  border: 1px solid rgba(205, 218, 255, 0.16);
+  border-radius: calc(var(--window-border-radius) - 3px);
+  pointer-events: none;
+}
 .inner {
+  position: relative;
+  z-index: 1;
   padding: clamp(1.25rem, 3vw, 2rem);
 }
 .title {
   position: absolute;
-  z-index: 1;
-  top: -0.75rem;
+  z-index: 2;
+  top: -0.9rem;
   left: 1rem;
-  padding: 0.18rem 0.65rem;
-  background: var(--ink);
-  border: 1px solid var(--silver);
+  padding: 0.22rem 0.7rem;
+  background: linear-gradient(145deg, #182968, #0a1238);
+  border: 2px solid var(--silver);
+  box-shadow:
+    inset 0 0 0 1px var(--ink),
+    inset 2px 2px 0 rgba(190, 208, 255, 0.2),
+    2px 2px 0 rgba(4, 6, 24, 0.72);
   color: var(--gold);
   font-family: var(--display);
   font-size: 0.65rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+.title::before,
+.title::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 0.7rem;
+  height: 2px;
+  background: var(--silver);
+  box-shadow: 0 2px 0 var(--ink);
+}
+.title::before {
+  left: -0.78rem;
+}
+.title::after {
+  right: -0.78rem;
 }

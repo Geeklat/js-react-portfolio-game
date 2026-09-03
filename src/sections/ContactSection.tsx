@@ -6,7 +6,9 @@ import styles from './Sections.module.css'
 export function ContactSection() {
   return (
     <section aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact</h2>
+      <h2 id="contact-heading" className={styles.sectionHeading}>
+        Contact
+      </h2>
       <dl className={styles.contactList}>
         <div>
           <dt>Name</dt>

@@ -18,6 +18,10 @@
   --interactive-hover: rgba(255, 255, 255, 0.08);
   --window-border-width: 4px;
   --window-border-radius: 0.5rem;
+  --window-surface-start: rgba(31, 52, 122, 0.98);
+  --window-surface-end: rgba(10, 17, 52, 0.98);
+  --window-inner-highlight: rgba(188, 207, 255, 0.24);
+  --window-inner-shadow: rgba(2, 5, 22, 0.72);
   --display: 'Press Start 2P', ui-monospace, monospace;
   --space-3: 0.75rem;
   --space-4: 1rem;
@@ -65,7 +69,7 @@ h2 {
   font-size: clamp(1rem, 3vw, 1.4rem);
 }
 h3 {
-  font-size: 0.78rem;
+  font-size: clamp(0.78rem, 0.7rem + 0.2vw, 0.92rem);
 }
 a {
   color: var(--accent);

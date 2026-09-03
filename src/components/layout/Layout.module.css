@@ -97,45 +97,102 @@
   font-size: clamp(1.6rem, 4vw, 2.8rem);
 }
 
+.artWell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--border-muted);
+  background:
+    radial-gradient(circle at 45% 38%, rgba(75, 115, 199, 0.3), transparent 58%),
+    linear-gradient(145deg, rgba(8, 22, 65, 0.9), rgba(4, 10, 35, 0.95));
+  box-shadow:
+    inset 0 0 0 2px rgba(2, 5, 22, 0.65),
+    inset 2px 2px 0 3px rgba(164, 190, 245, 0.12),
+    inset -2px -2px 0 3px rgba(0, 0, 12, 0.45);
+  clip-path: polygon(
+    5px 0,
+    calc(100% - 5px) 0,
+    100% 5px,
+    100% calc(100% - 5px),
+    calc(100% - 5px) 100%,
+    5px 100%,
+    0 calc(100% - 5px),
+    0 5px
+  );
+}
+.portraitArtWell {
+  width: clamp(9rem, 25vw, 11.5rem);
+  max-width: 100%;
+  aspect-ratio: 1;
+}
 .portraitArtwork {
   display: block;
-  width: clamp(8rem, 25vw, 10.25rem);
-  max-width: 100%;
+  width: 100%;
   height: auto;
   aspect-ratio: 1;
-  margin: 0 auto var(--space-4);
   object-fit: contain;
   image-rendering: pixelated;
 }
+.detailArtWell {
+  flex: 0 1 12.5rem;
+  width: min(13.5rem, 38vw);
+  max-width: 47%;
+  aspect-ratio: 1;
+}
 .detailArtwork {
   display: block;
-  flex: 0 1 12.5rem;
-  width: min(12.5rem, 36vw);
-  max-width: 45%;
+  width: 100%;
   height: auto;
   aspect-ratio: 1;
   object-fit: contain;
   image-rendering: pixelated;
 }
 
+.statusLayout {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.7fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+.statusDetails {
+  min-width: 0;
+}
 .identityList {
   margin: 0;
 }
 .identityList div {
   display: grid;
-  grid-template-columns: 6.2rem minmax(0, 1fr);
-  gap: var(--space-3);
-  padding: 0.6rem 0;
-  border-top: 1px dashed var(--border-muted);
+  grid-template-columns: 5.2rem minmax(0, 1fr);
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+}
+.identityList div + div {
+  border-top: 1px dashed rgba(102, 118, 170, 0.7);
 }
 .identityList dt {
   color: var(--text-muted);
   font-family: var(--display);
-  font-size: 0.62rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
 }
 .identityList dd {
   margin: 0;
+  color: var(--text);
   overflow-wrap: anywhere;
+}
+.primaryIdentity dd {
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+.secondaryIdentity {
+  margin-top: var(--space-4);
+  padding-top: 0.65rem;
+  border-top: 2px solid var(--border-muted);
+}
+.secondaryIdentity dd {
+  font-size: 0.92rem;
 }
 
 .menu {
@@ -244,6 +301,15 @@
   }
   .detailHeading {
     min-height: 7rem;
+  }
+}
+
+@media (max-width: 980px) {
+  .statusLayout {
+    grid-template-columns: 1fr;
+  }
+  .portraitArtWell {
+    margin-inline: auto;
   }
 }
 

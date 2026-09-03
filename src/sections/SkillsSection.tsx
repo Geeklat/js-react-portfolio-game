@@ -4,7 +4,9 @@ import styles from './Sections.module.css'
 export function SkillsSection() {
   return (
     <section aria-labelledby="skills-heading">
-      <h2 id="skills-heading">Skills</h2>
+      <h2 id="skills-heading" className={styles.sectionHeading}>
+        Skills
+      </h2>
       <div className={styles.skillGrid}>
         {skillGroups.map((group) => (
           <section key={group.id}>
