@@ -71,3 +71,11 @@ The application builds to static files with Vite. Because navigation uses fragme
 ## Development approach
 
 This project uses a deliberately constrained, human-directed agentic development workflow. Agents assist with bounded implementation and verification, while consequential product, architecture, accessibility, content, and design decisions remain human-owned. See [Human-Directed Agentic Development](docs/AGENTIC-DEVELOPMENT.md) for the methodology and [`AGENTS.md`](AGENTS.md) for the operational decision boundaries.
+
+## Asset Licenses
+
+Press Start 2P
+
+Licensed under the SIL Open Font License 1.1.
+
+See licenses/Press-Start-2P-OFL.txt.
