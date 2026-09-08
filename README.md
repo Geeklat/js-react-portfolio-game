@@ -1,15 +1,89 @@
 # Justin Green Portfolio
 
-A static React and TypeScript portfolio presented as an original, classic-JRPG-inspired interface. The application has four professional sections—Profile, Work, Skills, and Contact—inside one persistent interface.
+A professional portfolio built with React and TypeScript using the visual language of classic 16-bit JRPG menu interfaces.
 
-## Local development
+The project combines a distinctive game-inspired presentation with normal accessible web interaction, responsive layouts, browser history support, and deliberately lightweight frontend architecture.
+
+## Live Portfolio
+
+**[View the live portfolio](https://jgreen-portfolio.netlify.app/)**
+
+![Skills screen from the Justin Green portfolio](docs/images/jgreen_portfolio_skills_screen.png)
+
+## Engineering Highlights
+
+- **Proportional architecture** — Uses local React state and URL fragments for deep linking and browser history without introducing routing or global-state infrastructure the application does not need.
+- **Accessible interaction design** — Preserves native links and normal Tab navigation while adding Arrow/Home/End keyboard controls and a pixel-hand focus indicator.
+- **Responsive CSS engineering** — Uses custom Grid/Flex layouts to preserve the JRPG composition across desktop and mobile, including practical handling of intrinsic Grid sizing and narrow-viewport overflow.
+- **Behavior-focused testing** — Vitest and React Testing Library cover fragment navigation, browser history, keyboard focus, active state, cursor behavior, and transition lifecycle rather than optimizing for coverage numbers.
+
+## Design and Interaction
+
+The portfolio has four professional sections:
+
+- Profile
+- Work
+- Skills
+- Contact
+
+The initial screen is styled after a classic JRPG character/status menu, with a persistent command interface leading into the four detail sections.
+
+Navigation is synchronized with URL fragments:
+
+- `#profile`
+- `#work`
+- `#skills`
+- `#contact`
+
+This supports direct links, bookmarks, and browser Back/Forward behavior without requiring React Router.
+
+The command menu preserves normal browser interaction while adding optional JRPG-style keyboard navigation. The currently displayed section and keyboard-focused command are intentionally modeled as separate states.
+
+Motion is kept restrained: the initial detail transition, background movement, and cursor animation reinforce state without being necessary to use the application. `prefers-reduced-motion` disables decorative motion.
+
+## Technology
+
+- React
+- TypeScript
+- Vite
+- CSS Modules
+- CSS Grid and Flexbox
+- Vitest
+- React Testing Library
+- Static deployment with Netlify
+
+The architecture is intentionally modest. The application does not use a router, global state library, runtime API, CMS, UI framework, or backend because those systems are not required by the product.
+
+## Accessibility
+
+The JRPG theme is layered on top of normal web behavior rather than replacing it.
+
+The interface includes:
+
+- Native links and normal Tab / Shift+Tab navigation
+- Enter activation
+- Optional Arrow Up / Down and Home / End command navigation
+- Visible keyboard focus
+- A pixel-hand cursor as supplemental visual feedback
+- Separate active-section and keyboard-focus states
+- Semantic document headings
+- Reduced-motion support
+
+## Local Development
+
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Start the Vite development server:
+
+```bash
 npm run dev
 ```
 
-Quality commands:
+Quality checks:
 
 ```bash
 npm run lint
@@ -19,59 +93,44 @@ npm run build
 npm run format:check
 ```
 
-## Interaction model
+## Project Structure
 
-The empty URL fragment displays the initial party/status screen. Selecting a command opens the detail interface and synchronizes local React state with one of these fragments:
+```text
+src/
+├── assets/       # Pixel artwork and self-hosted fonts
+├── components/   # Layout, menu, and shared UI components
+├── data/         # Typed portfolio content and navigation data
+├── hooks/        # URL-fragment synchronization
+├── sections/     # Profile, Work, Skills, and Contact
+├── styles/       # Shared visual tokens and global styles
+└── types/        # Lightweight shared TypeScript models
 
-- `#profile`
-- `#work`
-- `#skills`
-- `#contact`
+docs/
+├── AGENTIC-DEVELOPMENT.md
+├── LICENSING.md
+└── PROFESSIONAL-CONTENT-SOURCE-OF-TRUTH.md
+```
 
-This supports direct links, bookmarks, and browser Back/Forward without React Router. The command menu remains present between states so focus stays on the control the visitor activated.
+Private working source material used to verify professional content is intentionally excluded from the public repository.
 
-## Project structure
+## Development Approach
 
-- `src/data/` contains separate profile, experience, skills, contact, navigation, and asset-slot data.
-- `src/sections/` contains one component for each professional section.
-- `src/components/layout/` contains the party and detail compositions.
-- `src/components/menu/` contains the persistent command menu.
-- `src/components/ui/` contains focused shared UI primitives.
-- `src/hooks/useSectionHash.ts` synchronizes section state with URL fragments.
-- `src/types/portfolio.ts` contains lightweight shared content types.
+This project uses a constrained, human-directed agent-assisted development workflow. Consequential product, architecture, accessibility, professional-content, and visual-design decisions remain human-owned, while coding agents assist with bounded implementation, inspection, testing, and verification.
 
-## Professional content sources
+Generated code is held to the same review and maintainability expectations as manually authored code.
 
-Professional facts must be derived from the authority rules in `docs/PROFESSIONAL-CONTENT-SOURCE-OF-TRUTH.md`. Working source documents belong in the ignored `local-source/` directory:
+For more detail, see [Human-Directed Agentic Development](docs/AGENTIC-DEVELOPMENT.md). Repository-level agent decision boundaries are documented in [`AGENTS.md`](AGENTS.md).
 
-- `local-source/Justin_Green_Master_Resume.md`
-- `local-source/COVER_LETTER_SOURCE_OF_TRUTH.md`
-- `local-source/LinkedInProfile.pdf`
+## Content Integrity
 
-Never commit these private working references or infer missing professional facts. Work uses a tiered presentation: recent relevant roles can receive fuller treatment while every earlier role remains represented concisely.
+Professional claims in the portfolio are governed by the authority and conflict rules in [Professional Content Source of Truth](docs/PROFESSIONAL-CONTENT-SOURCE-OF-TRUTH.md).
 
-## Assets and résumé
-
-The portrait and menu pointer use owner-approved pixel-art PNG assets configured in `src/data/assets.ts`. The portrait currently serves both the party and detail interfaces.
-
-Do not create a sample résumé. When the owner supplies the real PDF, place it in `public/` and set `resumeUrl` in `src/data/contact.ts`. The download action remains absent while that value is `null`.
-
-## Visual and accessibility behavior
-
-The menu and display typography use the self-hosted Press Start 2P font. Body content uses a readable system-font stack. CSS Modules handle component layout and a small global token layer defines the shared JRPG window appearance.
-
-Native links preserve Tab, Shift+Tab, and Enter behavior. Arrow Up/Down and Home/End provide optional command-menu enhancement. Active state, visible focus, and a restrained section announcement do not depend on the decorative cursor.
-
-The initial detail transition moves right-to-left, section changes inside detail mode are immediate, and the background and cursor move gently. `prefers-reduced-motion` disables decorative motion and the entrance transition.
-
-## Hosting
-
-The application builds to static files with Vite. Because navigation uses fragments rather than client-side routes, a static host does not need fallback rewrites for portfolio sections.
-
-## Development approach
-
-This project uses a deliberately constrained, human-directed agentic development workflow. Agents assist with bounded implementation and verification, while consequential product, architecture, accessibility, content, and design decisions remain human-owned. See [Human-Directed Agentic Development](docs/AGENTIC-DEVELOPMENT.md) for the methodology and [`AGENTS.md`](AGENTS.md) for the operational decision boundaries.
+Private résumé, LinkedIn, and working-source material is not stored in the public repository.
 
 ## Licensing
 
-Application source code is licensed under the MIT License. Personal and professional portfolio content and personal artwork are not covered by that license. Third-party assets and fonts retain their respective licenses. See [Licensing](docs/LICENSING.md) for details.
+Application source code is licensed under the [MIT License](LICENSE).
+
+Personal and professional portfolio content and personal artwork are not granted for reuse under the MIT License. Third-party assets and fonts retain their respective licenses.
+
+See [Licensing](docs/LICENSING.md) for details.
