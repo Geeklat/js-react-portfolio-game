@@ -317,8 +317,11 @@
   .appMain {
     padding: 0.85rem;
   }
-  .menu {
-    grid-template-columns: 1fr;
+  .contentPanel {
+    min-height: 20rem;
+  }
+  .contentRegion {
+    min-height: 15rem;
   }
   .detailHeading {
     align-items: flex-start;
