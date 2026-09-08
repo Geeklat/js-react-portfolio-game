@@ -1,6 +1,6 @@
 .background {
   position: fixed;
-  inset: -12%;
+  inset: 0;
   z-index: -1;
   background:
     radial-gradient(circle at 22% 28%, rgba(81, 105, 190, 0.22), transparent 32%),
@@ -263,7 +263,7 @@
 
 @keyframes backgroundDrift {
   to {
-    transform: translate3d(2%, 1.5%, 0) scale(1.02);
+    background-position: 2% 1.5%;
   }
 }
 @keyframes cursorBob {
