@@ -1,89 +1,87 @@
 # Justin Green Portfolio
 
-A professional portfolio built with React and TypeScript using the visual language of classic 16-bit JRPG menu interfaces.
+This is my personal portfolio, built with React and TypeScript and styled after the menu interfaces of classic JRPGs.
 
-The project combines a distinctive game-inspired presentation with normal accessible web interaction, responsive layouts, browser history support, and deliberately lightweight frontend architecture.
+I wanted a relatively simple portfolio project as a starting point for building out my GitHub work, but I also wanted to use it as a test run for developing a clearer agentic development workflow with a strong UX focus.
 
-## Live Portfolio
+I didn't want the site to just be another version of my résumé. I'm a video game fan and particularly interested in UX design in games, so I used that as an opportunity to give the portfolio some personality while still making sure it works like a normal, accessible website.
 
-**[View the live portfolio](https://jgreen-portfolio.netlify.app/)**
+## Live Site
 
-![Skills screen from the Justin Green portfolio](docs/images/jgreen_portfolio_skills_screen.png)
+**[jgreen-portfolio.netlify.app](https://jgreen-portfolio.netlify.app/)**
 
-## Engineering Highlights
+![Skills screen from the portfolio](docs/images/jgreen_portfolio_skills_screen.png)
 
-- **Proportional architecture** — Uses local React state and URL fragments for deep linking and browser history without introducing routing or global-state infrastructure the application does not need.
-- **Accessible interaction design** — Preserves native links and normal Tab navigation while adding Arrow/Home/End keyboard controls and a pixel-hand focus indicator.
-- **Responsive CSS engineering** — Uses custom Grid/Flex layouts to preserve the JRPG composition across desktop and mobile, including practical handling of intrinsic Grid sizing and narrow-viewport overflow.
-- **Behavior-focused testing** — Vitest and React Testing Library cover fragment navigation, browser history, keyboard focus, active state, cursor behavior, and transition lifecycle rather than optimizing for coverage numbers.
+## What I focused on
 
-## Design and Interaction
+### Keeping the UX unique without sacrificing accessibility
 
-The portfolio has four professional sections:
+One of the parts I'm happiest with is getting the JRPG-style interaction to work while still keeping normal web behavior.
 
-- Profile
-- Work
-- Skills
-- Contact
+Links are still links. Tab and Enter work normally. The command menu adds Arrow, Home, and End navigation, but those are enhancements rather than replacements for standard keyboard behavior.
 
-The initial screen is styled after a classic JRPG character/status menu, with a persistent command interface leading into the four detail sections.
+The hand cursor is there to reinforce the game-inspired interface, but it isn't the only indication of focus or the current section.
 
-Navigation is synchronized with URL fragments:
+Accessibility is important to frontend development, and I wanted it involved throughout the process instead of treated as something to add at the end.
 
-- `#profile`
-- `#work`
-- `#skills`
-- `#contact`
+### Avoiding unnecessary complexity
 
-This supports direct links, bookmarks, and browser Back/Forward behavior without requiring React Router.
+One concern I have with agentic development is how easily a relatively simple problem can become overengineered. It's easy to add abstractions, dependencies, or extra code when there's a simpler way to solve the problem.
 
-The command menu preserves normal browser interaction while adding optional JRPG-style keyboard navigation. The currently displayed section and keyboard-focused command are intentionally modeled as separate states.
+For this project, local React state synchronized with URL fragments was enough to support navigation, direct links, bookmarks, and browser Back/Forward behavior. There wasn't a reason to add React Router, global state, a backend, or a larger content system just because those are common tools in React applications.
 
-Motion is kept restrained: the initial detail transition, background movement, and cursor animation reinforce state without being necessary to use the application. `prefers-reduced-motion` disables decorative motion.
+### Making the custom layout responsive
 
-## Technology
+The interface uses CSS Grid and Flexbox without a UI framework.
+
+The desktop layout keeps the JRPG-style status and command windows, while narrower screens reflow and resize the artwork without changing how the interface works.
+
+Some of the responsive work also involved tracking down actual browser layout behavior, including CSS Grid intrinsic sizing that was causing horizontal overflow on mobile.
+
+### Testing the behavior I cared about
+
+I used Vitest and React Testing Library to cover the interactions most likely to break as the interface changed:
+
+- URL fragment navigation
+- Browser Back/Forward
+- Keyboard movement and focus
+- Active section versus focused command
+- The hand cursor
+- Transition behavior
+
+I wasn't trying to maximize a coverage number. I wanted tests around the parts of the interface where the behavior actually mattered.
+
+The site also respects `prefers-reduced-motion`, disabling the decorative background, cursor movement, and entrance animation without changing how the site works.
+
+## Tech
 
 - React
 - TypeScript
 - Vite
 - CSS Modules
-- CSS Grid and Flexbox
+- CSS Grid / Flexbox
 - Vitest
 - React Testing Library
-- Static deployment with Netlify
+- Netlify
 
-The architecture is intentionally modest. The application does not use a router, global state library, runtime API, CMS, UI framework, or backend because those systems are not required by the product.
+## Agentic development
 
-## Accessibility
+I think of agentic development as another development tool. Like any tool, you need to understand where it helps, where it doesn't, and when you need to course correct.
 
-The JRPG theme is layered on top of normal web behavior rather than replacing it.
+One of my goals with this project was to experiment with that workflow and develop a more stable pattern for using coding agents. I used agents for things like implementation, review, debugging, and verification, while personally guiding the larger decisions around UX, architecture, accessibility, content, and visual direction.
 
-The interface includes:
+A big part of the experiment was also learning when to tell the agent **not** to build something. Several passes on the project were specifically about removing unnecessary abstractions, simplifying generated code, or stopping before a larger technical decision was made.
 
-- Native links and normal Tab / Shift+Tab navigation
-- Enter activation
-- Optional Arrow Up / Down and Home / End command navigation
-- Visible keyboard focus
-- A pixel-hand cursor as supplemental visual feedback
-- Separate active-section and keyboard-focus states
-- Semantic document headings
-- Reduced-motion support
+I documented the workflow in [Human-Directed Agentic Development](docs/AGENTIC-DEVELOPMENT.md). The actual boundaries I used while working with coding agents are in [`AGENTS.md`](AGENTS.md).
 
-## Local Development
-
-Install dependencies:
+## Running locally
 
 ```bash
 npm install
-```
-
-Start the Vite development server:
-
-```bash
 npm run dev
 ```
 
-Quality checks:
+Other useful commands:
 
 ```bash
 npm run lint
@@ -93,44 +91,16 @@ npm run build
 npm run format:check
 ```
 
-## Project Structure
+## Professional content
 
-```text
-src/
-├── assets/       # Pixel artwork and self-hosted fonts
-├── components/   # Layout, menu, and shared UI components
-├── data/         # Typed portfolio content and navigation data
-├── hooks/        # URL-fragment synchronization
-├── sections/     # Profile, Work, Skills, and Contact
-├── styles/       # Shared visual tokens and global styles
-└── types/        # Lightweight shared TypeScript models
+I also wanted to avoid having an agent casually rewrite or embellish my work history while building a portfolio around it.
 
-docs/
-├── AGENTIC-DEVELOPMENT.md
-├── LICENSING.md
-└── PROFESSIONAL-CONTENT-SOURCE-OF-TRUTH.md
-```
+The rules I used for deciding which professional sources take precedence and what can or can't be changed are documented in [Professional Content Source of Truth](docs/PROFESSIONAL-CONTENT-SOURCE-OF-TRUTH.md).
 
-Private working source material used to verify professional content is intentionally excluded from the public repository.
-
-## Development Approach
-
-This project uses a constrained, human-directed agent-assisted development workflow. Consequential product, architecture, accessibility, professional-content, and visual-design decisions remain human-owned, while coding agents assist with bounded implementation, inspection, testing, and verification.
-
-Generated code is held to the same review and maintainability expectations as manually authored code.
-
-For more detail, see [Human-Directed Agentic Development](docs/AGENTIC-DEVELOPMENT.md). Repository-level agent decision boundaries are documented in [`AGENTS.md`](AGENTS.md).
-
-## Content Integrity
-
-Professional claims in the portfolio are governed by the authority and conflict rules in [Professional Content Source of Truth](docs/PROFESSIONAL-CONTENT-SOURCE-OF-TRUTH.md).
-
-Private résumé, LinkedIn, and working-source material is not stored in the public repository.
+Private résumé and working-source material are intentionally kept out of the repository.
 
 ## Licensing
 
-Application source code is licensed under the [MIT License](LICENSE).
+Application source code is available under the [MIT License](LICENSE).
 
-Personal and professional portfolio content and personal artwork are not granted for reuse under the MIT License. Third-party assets and fonts retain their respective licenses.
-
-See [Licensing](docs/LICENSING.md) for details.
+My personal portfolio content and artwork aren't included in that grant, and third-party fonts or assets retain their own licenses. More detail is available in [Licensing](docs/LICENSING.md).
