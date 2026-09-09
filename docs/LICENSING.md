@@ -21,5 +21,4 @@ Personal portrait artwork and other owner-created personal visual assets are not
 Third-party fonts and externally sourced assets retain their original licenses and are not relicensed under the MIT License.
 
 - Press Start 2P is distributed under the SIL Open Font License 1.1. The repository includes the [copyright notice and full OFL 1.1 text](../src/assets/fonts/Press-Start-2P-OFL.txt).
-- Averia Libre is distributed under the SIL Open Font License 1.1 and is not relicensed under this repository's MIT License. Copyright (c) 2011, Dan Sayers. The Reserved Font Names are "Averia" and "Averia Libre." The repository includes the [copyright notice and full OFL 1.1 text](../src/assets/fonts/Averia-Libre-OFL.txt) and the upstream [FONTLOG](../src/assets/fonts/Averia-Libre-FONTLOG.txt).
 - `pointer_pixel.png` is a pixel-art transformation of generic clip-art source material that the repository owner has confirmed permits public use. The repository does not claim that the source material is public domain or assign it a more specific license category.
